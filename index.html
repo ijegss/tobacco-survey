@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tobacco Flavour Survey</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f0f6ff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 850px;
+      background: #fff;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.08);
+    }
+    h1, h2 {
+      color: #004080;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 15px;
+    }
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+    input[type="text"], textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .options label {
+      font-weight: normal;
+      display: block;
+      margin-top: 5px;
+    }
+    .checkboxes label,
+    .radios label {
+      margin-left: 10px;
+    }
+    button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      background: #004080;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0057b8;
+    }
+    #statusMsg {
+      margin-top: 25px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>The Role of Flavors in Tobacco Use</h1>
+    <p>
+      Our team is working on the possible role of flavours in initiating and escalating tobacco use among young and adult populations in Nigeria.
+      Please take a few minutes to respond to the following 24 questions. Tick or fill as appropriate. Thank you!
+    </p>
+
+    <form id="survey-form">
+      <h2>Section A: Socio-Demographic</h2>
+
+      <!-- Q1 to Q5 -->
+      <label>1. Age:</label>
+      <div class="options radios">
+        <label><input type="radio" name="Age" value="15–24" required> 15–24</label>
+        <label><input type="radio" name="Age" value="25–34"> 25–34</label>
+        <label><input type="radio" name="Age" value="35–44"> 35–44</label>
+        <label><input type="radio" name="Age" value="45+"> 45 and above</label>
+      </div>
+
+      <label>2. Gender:</label>
+      <div class="options radios">
+        <label><input type="radio" name="Gender" value="Male" required> Male</label>
+        <label><input type="radio" name="Gender" value="Female"> Female</label>
+      </div>
+
+      <label>3. Highest level of education:</label>
+      <div class="options radios">
+        <label><input type="radio" name="Education" value="No formal education" required> No formal education</label>
+        <label><input type="radio" name="Education" value="Primary school"> Primary school</label>
+        <label><input type="radio" name="Education" value="Secondary school"> Secondary school</label>
+        <label><input type="radio" name="Education" value="Tertiary"> Tertiary</label>
+        <label><input type="radio" name="Education" value="Postgraduate"> Postgraduate</label>
+      </div>
+
+      <label>4. Employment status:</label>
+      <div class="options radios">
+        <label><input type="radio" name="Employment" value="Employed" required> Employed</label>
+        <label><input type="radio" name="Employment" value="Self-employed"> Self-employed</label>
+        <label><input type="radio" name="Employment" value="Student"> Student</label>
+        <label><input type="radio" name="Employment" value="Unemployed"> Unemployed</label>
+        <label><input type="radio" name="Employment" value="Other"> Other</label>
+        <input type="text" name="EmploymentOther" placeholder="Specify if other...">
+      </div>
+
+      <label>5. State of residence:</label>
+      <input type="text" name="State" required>
+
+      <h2>Section B: Tobacco Use</h2>
+
+      <!-- Q6–11 -->
+      <label>6. Products ever used:</label>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="EverUsed" value="Cigarettes"> Cigarettes</label>
+        <label><input type="checkbox" name="EverUsed" value="Shisha"> Shisha</label>
+        <label><input type="checkbox" name="EverUsed" value="Snuff"> Snuff</label>
+        <label><input type="checkbox" name="EverUsed" value="E-cigarettes"> E-cigarettes</label>
+        <label><input type="checkbox" name="EverUsed" value="Cigars"> Cigars</label>
+        <label><input type="checkbox" name="EverUsed" value="Nicotine pouches"> Nicotine pouches</label>
+        <label><input type="checkbox" name="EverUsed" value="None"> None</label>
+      </div>
+
+      <label>7. Used in the past 30 days:</label>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="UsedRecently" value="Cigarettes"> Cigarettes</label>
+        <label><input type="checkbox" name="UsedRecently" value="Shisha"> Shisha</label>
+        <label><input type="checkbox" name="UsedRecently" value="Snuff"> Snuff</label>
+        <label><input type="checkbox" name="UsedRecently" value="E-cigarettes"> E-cigarettes</label>
+        <label><input type="checkbox" name="UsedRecently" value="Cigars"> Cigars</label>
+        <label><input type="checkbox" name="UsedRecently" value="Nicotine pouches"> Nicotine pouches</label>
+        <label><input type="checkbox" name="UsedRecently" value="None"> None</label>
+      </div>
+
+      <label>8. Age at first try:</label>
+      <select name="FirstTryAge" required>
+        <option value="">--Select--</option>
+        <option value="Under 15">Under 15</option>
+        <option value="15–17">15–17</option>
+        <option value="18–20">18–20</option>
+        <option value="21+">21+</option>
+      </select>
+
+      <label>9. What/who convinced your first try?</label>
+      <div class="options radios">
+        <label><input type="radio" name="FirstInfluence" value="Family"> Family</label>
+        <label><input type="radio" name="FirstInfluence" value="Peers"> Peer pressure</label>
+        <label><input type="radio" name="FirstInfluence" value="Social media"> Social media</label>
+        <label><input type="radio" name="FirstInfluence" value="Other"> Other</label>
+        <input type="text" name="FirstInfluenceOther" placeholder="Specify...">
+      </div>
+
+      <label>10. Product used most often:</label>
+      <select name="MostUsed" required>
+        <option value="">--Select--</option>
+        <option value="Cigarettes">Cigarettes</option>
+        <option value="Shisha">Shisha</option>
+        <option value="Snuff">Snuff</option>
+        <option value="E-cigarettes">E-cigarettes</option>
+        <option value="Cigars">Cigars</option>
+        <option value="Nicotine pouches">Nicotine pouches</option>
+        <option value="None">None</option>
+      </select>
+
+      <label>11. Frequency of use:</label>
+      <select name="UsageFrequency" required>
+        <option value="">--Select--</option>
+        <option value="Daily">Daily</option>
+        <option value="Several times a week">Several times a week</option>
+        <option value="Weekly">Weekly</option>
+        <option value="Less than weekly">Less than weekly</option>
+        <option value="Not currently using">Not currently using</option>
+      </select>
+
+      <h2>Section C: Flavour Preferences</h2>
+
+      <!-- Q12–15 -->
+      <label>12. Have you used flavored products in the past 30 days?</label>
+      <select name="UsedFlavors">
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>13. Flavors used (past 30 days):</label>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="FlavorsUsed" value="Menthol"> Menthol</label>
+        <label><input type="checkbox" name="FlavorsUsed" value="Fruit"> Fruit</label>
+        <label><input type="checkbox" name="FlavorsUsed" value="Candy"> Candy</label>
+        <label><input type="checkbox" name="FlavorsUsed" value="Alcohol"> Alcohol</label>
+        <label><input type="checkbox" name="FlavorsUsed" value="Traditional"> Traditional</label>
+        <label><input type="checkbox" name="FlavorsUsed" value="Tobacco"> Tobacco</label>
+        <label><input type="text" name="FlavorsUsedOther" placeholder="Other flavor..."></label>
+      </div>
+
+      <label>14. Why do you like flavored products?</label>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="FlavorReasons" value="Taste"> Taste</label>
+        <label><input type="checkbox" name="FlavorReasons" value="Smell"> Smell</label>
+        <label><input type="checkbox" name="FlavorReasons" value="Smooth"> Smoother</label>
+        <label><input type="checkbox" name="FlavorReasons" value="Easier"> Easier to start</label>
+        <label><input type="checkbox" name="FlavorReasons" value="Peer"> Peer influence</label>
+        <label><input type="text" name="FlavorReasonsOther" placeholder="Other..."></label>
+      </div>
+
+      <label>15. Purchase frequency compared to non-flavored:</label>
+      <select name="PurchaseFrequency">
+        <option value="">--Select--</option>
+        <option value="More often">More often</option>
+        <option value="Same">About the same</option>
+        <option value="Less">Less often</option>
+      </select>
+
+      <h2>Section D: Purchasing & Availability</h2>
+
+      <!-- Q16–19 -->
+      <label>16. Where do you buy tobacco/nicotine products?</label>
+      <div class="checkboxes">
+        <label><input type="checkbox" name="WhereBuy" value="Street"> Street vendors</label>
+        <label><input type="checkbox" name="WhereBuy" value="Shops"> Shops/Supermarkets</label>
+        <label><input type="checkbox" name="WhereBuy" value="Bars"> Bars/Clubs</label>
+        <label><input type="checkbox" name="WhereBuy" value="Online"> Online</label>
+        <label><input type="checkbox" name="WhereBuy" value="Friends"> Friends</label>
+      </div>
+
+      <label>17. How important is flavor in choosing products?</label>
+      <select name="FlavorImportance">
+        <option value="">--Select--</option>
+        <option value="Not important">Not important</option>
+        <option value="Slightly">Slightly</option>
+        <option value="Moderate">Moderately</option>
+        <option value="Very">Very</option>
+        <option value="Extremely">Extremely</option>
+      </select>
+
+      <label>18. Did flavor availability affect your buying?</label>
+      <select name="FlavorAvailability">
+        <option value="">--Select--</option>
+        <option value="Buy more">Yes, I buy more</option>
+        <option value="No change">No change</option>
+        <option value="Buy less">Yes, I buy less</option>
+      </select>
+
+      <label>19. If flavors were banned, what would you do?</label>
+      <select name="IfBanned">
+        <option value="">--Select--</option>
+        <option value="Stop">Stop using</option>
+        <option value="Switch">Switch to non-flavored</option>
+        <option value="Find informal">Get from informal sources</option>
+        <option value="Not sure">Not sure</option>
+      </select>
+
+      <h2>Section E & F: Awareness & Willingness</h2>
+
+      <!-- Q20–24 -->
+      <label>20. Aware of any laws about flavored tobacco in Nigeria?</label>
+      <select name="LawAwareness">
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>21. Do flavors make it easier for youth to start?</label>
+      <select name="YouthEase">
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="Not sure">Not sure</option>
+      </select>
+
+      <label>22. Should flavored tobacco be more regulated?</label>
+      <select name="ShouldRegulate">
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="Not sure">Not sure</option>
+      </select>
+
+      <label>23. Have you tried to quit?</label>
+      <select name="TriedQuit">
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+      </select>
+
+      <label>24. Would removing flavors influence you to quit?</label>
+      <select name="FlavorQuit">
+        <option value="">--Select--</option>
+        <option value="Yes">Yes</option>
+        <option value="No">No</option>
+        <option value="Maybe">Maybe</option>
+      </select>
+
+      <button type="submit">Submit Survey</button>
+      <p id="statusMsg"></p>
+    </form>
+  </div>
+
+  <script>
+    const form = document.getElementById("survey-form");
+    form.addEventListener("submit", async function(e) {
+      e.preventDefault();
+      const data = new FormData(form);
+      const json = {};
+      data.forEach((value, key) => {
+        if (json[key]) {
+          if (!Array.isArray(json[key])) json[key] = [json[key]];
+          json[key].push(value);
+        } else {
+          json[key] = value;
+        }
+      });
+
+      const statusMsg = document.getElementById("statusMsg");
+      try {
+        const response = await fetch("https://script.google.com/macros/s/AKfycbzRiMoebSfiMTyiDPtv_CeQC3UFitaXmVS6l-phsZ9FQRl4oTVnxuG3EPCV75xgx-pgIw/exec", {
+          method: "POST",
+          mode: "no-cors",
+          body: JSON.stringify(json),
+        });
+        statusMsg.innerText = "✅ Response submitted successfully!";
+        form.reset();
+      } catch (error) {
+        statusMsg.innerText = "❌ Error submitting form.";
+      }
+    });
+  </script>
+</body>
+</html>
